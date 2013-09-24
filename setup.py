@@ -8,19 +8,17 @@ from setuptools import setup
 
 setup(
     name='Flask-mongobit',
-    version='0.1',
+    version='0.1.2',
     url='https://github.com/lixxu/flask-mongobit',
     license='BSD',
     author='Lix Xu',
     author_email='xuzenglin@gmail.com',
     description='MongoBit support in Flask',
     long_description=__doc__,
-    namespace_packages=['flaskext'],
-    packages=['flaskext', 'flaskext.mongobit'],
+    packages=['flask_mongobit'],
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask',
         'MongoBit',
     ],
     classifiers=[
