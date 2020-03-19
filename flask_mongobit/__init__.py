@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
-'''
+"""
     flaskext.mongobit
     ~~~~~~~~~~~~~~~~~
 
@@ -10,7 +10,7 @@
     :copyright: (c) 2012 by Lix Xu.
     :license: BSD, see LICENSE for more details.
 
-'''
+"""
 
 import mongobit
 from mongobit import Model, fields
@@ -22,7 +22,7 @@ class MongoBit(object):
             self.init_app(app)
 
     def init_app(self, app):
-        app.config['alias'] = app.name
+        app.config["alias"] = app.name
         self.app = app
         self.mongo = mongobit.MongoBit(app.config)
 
@@ -55,4 +55,7 @@ class MongoBit(object):
         return self.mongo.database
 
     def close(self):
-        self.connection.disconnect()
+        try:
+            self.connection.close()
+        except Exception:
+            pass
